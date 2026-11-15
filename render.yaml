@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: realtime-bet-game
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: DATA_DIR
+        value: /var/data
+      - key: PUBLIC_BASE_URL
+        sync: false
+    disk:
+      name: game-data
+      mountPath: /var/data
+      sizeGB: 1
